@@ -7,3 +7,5 @@ Feature: Search for Course Fees
         Then Select form search button
         Then Select course fees search result
         And Close browser
+
+    
