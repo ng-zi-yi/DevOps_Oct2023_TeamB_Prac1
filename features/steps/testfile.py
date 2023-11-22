@@ -28,15 +28,11 @@ def clickSearch(context):
 @then(u'Verify if able to Search')
 def verifySearch(context):
     context.driver.find_element(By.XPATH,"/html/body/main/section/div/div[2]/div[2]/div")
-    
-@then(u'Open Chatbot')
-def openChatBot(context):
-    context.driver.find_element(By.XPATH,"/html/body/main/section/div/div[4]/div/div[1]/div/img")
-    
-@then(u'Filter to Infocomm Techonology')
-def filterCourse(context):
-    select = Select(context.driver.findElement(By.XPATH("//*[@id='jobIndustry']")))
-    select.select_by_value('Infocomm Technology')
+            
+# @then(u'Filter to Infocomm Techonology')
+# def filterCourse(context):
+#     select = Select(context.driver.findElement(By.XPATH("//*[@id='jobIndustry']")))
+#     select.select_by_value('Infocomm Technology')
 
 @then(u'Close browser')
 def closeBrowser(context):
