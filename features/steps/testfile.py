@@ -4,6 +4,8 @@ from time import sleep
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.select import Select
 # from selenium.webdriver.remote.webelement import WebElement
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
 @given(u'Chrome browser is Launched')
 def laucnhChromeBrowser(context):
@@ -19,7 +21,7 @@ def navToFTPage(context):
     
 @then(u'Input Course Title')
 def inputCourse(context):
-    context.driver.find_element(By.XPATH,"//*[@id='courseListingSearch']").send_keys("Information Technology")
+    context.driver.find_element(By.XPATH,"//*[@id='courseListingSearch']").send_keys("Info")
 
 @then(u'Select Search button')
 def clickSearch(context):
@@ -27,7 +29,11 @@ def clickSearch(context):
 
 @then(u'Verify if able to Search')
 def verifySearch(context):
-    context.driver.find_element(By.XPATH,"/html/body/main/section/div/div[2]/div[2]/div")
+    title = WebDriverWait(context.driver, 10).until(
+        EC.presence_of_element_located((By.XPATH, '//*[@id="courseListingData"]/div/div/div/div/a/div'))
+    )
+    assert title.text == "N54"
+
             
 # @then(u'Filter to Infocomm Techonology')
 # def filterCourse(context):
