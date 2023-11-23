@@ -9,10 +9,10 @@ Feature: NP Website Social Media
         And     Close browser
 
     Examples: Social Medias
-        |socialicon                                                   |socialmediaPage                                        |
-        |/html/body/footer/div[1]/div/div[4]/div[2]/ul/li[1]/a/em     |https://tiktok.com/@ngeeannpoly                       |
-        |/html/body/footer/div[1]/div/div[4]/div[2]/ul/li[2]/a/em     |https://www.instagram.com/ngeeannpoly/                 |
-        |/html/body/footer/div[1]/div/div[4]/div[2]/ul/li[3]/a/em     |https://www.youtube.com/user/NgeeAnnPolytechnic        |
-        |/html/body/footer/div[1]/div/div[4]/div[2]/ul/li[4]/a/em     |https://www.facebook.com/ngeeannpoly                   |
-        |/html/body/footer/div[1]/div/div[4]/div[2]/ul/li[5]/a/em     |https://sg.linkedin.com/school/ngee-ann-polytechnic/   |
-        |/html/body/footer/div[1]/div/div[4]/div[2]/ul/li[6]/a/em     |https://t.me/ngeeannpoly                               |
+        |socialicon                                                   |socialmediaPage                                          |
+        |/html/body/footer/div[1]/div/div[4]/div[2]/ul/li[1]/a/em     |https://tiktok.com/@ngeeannpoly                          |
+        |/html/body/footer/div[1]/div/div[4]/div[2]/ul/li[2]/a/em     |https://www.instagram.com/ngeeannpoly/                   |
+        |/html/body/footer/div[1]/div/div[4]/div[2]/ul/li[3]/a/em     |https://www.youtube.com/user/NgeeAnnPolytechnic          |
+        |/html/body/footer/div[1]/div/div[4]/div[2]/ul/li[4]/a/em     |https://www.facebook.com/ngeeannpoly                     |
+        |/html/body/footer/div[1]/div/div[4]/div[2]/ul/li[5]/a/em     |https://sg.linkedin.com/school/ngee-ann-polytechnic/     |
+        |/html/body/footer/div[1]/div/div[4]/div[2]/ul/li[6]/a/em     |https://t.me/ngeeannpoly                                 |
