@@ -28,13 +28,21 @@ def inputQuery(context):
 @then(u'Select form search button')
 def clickSearch(context):
     context.driver.find_element(By.XPATH,"/html/body/div[2]/div/div/div[1]/div/button/em").click()
-    sleep(5)
+    sleep(2)
     context.driver.switch_to.window(context.driver.window_handles[1])
 
-@then(u'Select course fees search result')
+@then(u'Select fees search result')
 def clickCourseFees(context):
-    context.driver.find_element(By.XPATH,"//*[@id='sitesearch-result']/div[2]/a[1]").click()
+    context.driver.find_element(By.XPATH,"//*[@id='sitesearch-result']/div[2]/a[1]/p[2]").click()
     sleep(5)
+
+@then(u'Select sort by most recent')
+def sortByRecent(context):
+    context.driver.find_element(By.XPATH,"//*[@id='filterRadioDefault2']").click()
+
+@then(u'Filter courses')
+def sortByRecent(context):
+    context.driver.find_element(By.XPATH,"//*[@id='chkCourses']").click()
 
 @then(u'Close browser')
 def closeBrowser(context):
