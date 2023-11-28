@@ -1,9 +1,7 @@
 from behave import *
 from selenium import webdriver
-from time import sleep
+import logging
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support.select import Select
-# from selenium.webdriver.remote.webelement import WebElement
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
@@ -19,7 +17,7 @@ def openNPPage(context):
 def navToFTPage(context):
     context.driver.find_element(By.XPATH,"/html/body/header/nav/div[1]/div/div/div[1]/ul/li[2]/a").click()
     
-@then(u'Input Course Title')
+@then(u'Input "Info"')
 def inputCourse(context):
     context.driver.find_element(By.XPATH,"//*[@id='courseListingSearch']").send_keys("Info")
 
@@ -29,10 +27,31 @@ def clickSearch(context):
 
 @then(u'Verify if able to Search')
 def verifySearch(context):
-    title = WebDriverWait(context.driver, 10).until(
-        EC.presence_of_element_located((By.XPATH, '//*[@id="courseListingData"]/div/div/div/div/a/div'))
-    )
-    assert title.text == "N54"
+    try:
+        title = WebDriverWait(context.driver, 30).until(
+            EC.presence_of_element_located((By.XPATH, '/html/body/main/section/div/div[3]/div/div/div/div/a/h3'))
+        )
+    except:
+        context.driver.save_screenshot("error_screenshot_Verify.png")
+    assert title.text == "Information Technology (IT)"
+    
+@then(u'Select School dropdown')
+def selectSchoolFilter(context):
+    context.driver.find_element(By.XPATH,"/html/body/main/section/div/div[2]/div[1]/div/div[2]/select").click()
+    
+@then(u'Select "{School}"')
+def selectSchooltoFilter(context, School):
+    context.driver.find_element(By.XPATH,School).click()
+    
+@then(u'Verify Filter "{schoolName}" same as "{schoolNamePath}"')
+def verifySearch(context, schoolName, schoolNamePath):
+    try:
+        title = WebDriverWait(context.driver, 30).until(
+            EC.presence_of_element_located((By.XPATH, schoolNamePath))
+        )
+    except:
+        context.driver.save_screenshot("error_screenshot_Verify.png")
+    assert title.text == schoolName
 
             
 # @then(u'Filter to Infocomm Techonology')
