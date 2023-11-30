@@ -15,7 +15,7 @@
 </p> 
 
 <p>
-  5. Search Course Fees </br>
+  5. Search Bar Query </br>
   6. Find ICT using Virtual Tour </br>
   - Ng Zi Yi
 </p> 
