@@ -1,32 +1,37 @@
-Feature: Search for "fees" first result
-    Scenario: Search for "fees"
+Feature: Search Bar Query
+    Background:
         Given Chrome browser is Launched
         When Open NP Website
         Then Select navigation bar search button
-        Then Input search query "fees"
-        Then Select form search button
-        Then Select fees search result
-        And Close browser
 
-    Scenario: Search for "fees" using sort by most recent
-        Given Chrome browser is Launched
-        When Open NP Website
-        Then Select navigation bar search button
-        Then Input search query "fees"
+    Scenario Outline: Sort search result by most recent
+        Then Input search "<query>"
         Then Select form search button
         Then Select sort by most recent
-        Then Select fees search result
+        Then Select query search result
         And Close browser
 
-    Scenario: Search for "fees" using filter courses
-        Given Chrome browser is Launched
-        When Open NP Website
-        Then Select navigation bar search button
-        Then Input search query "fees"
+    Examples:
+    |query|
+    |fees|
+    |bursary|
+    |plp minors|
+
+    Scenario Outline: Filter search by selection
+        Then Input search "<query>"
         Then Select form search button
-        Then Filter courses
-        Then Select fees search result
-        And Close browser
+        Then Filter "<filterSelection>"
+        Then Select query search result
+        And Close browser    
+
+    Examples:
+    |query|filterSelection|
+    |plp minors|//*[@id="chkGeneral"]|
+    |bursary|//*[@id="chkNews"]|
+    |fees|//*[@id="chkCourses"]|
+
+
+
 
 
     

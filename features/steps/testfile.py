@@ -21,9 +21,9 @@ def openNPPage(context):
 def navSearch(context):
     context.driver.find_element(By.XPATH,"//*[@id='navbarNavDropdown']/ul/li[8]/button/em").click()
 
-@then(u'Input search query "fees"')
-def inputQuery(context):
-    context.driver.find_element(By.XPATH,"//*[@id='fsearch']").send_keys("fees")
+@then(u'Input search "{query}"')
+def inputQuery(context, query):
+    context.driver.find_element(By.XPATH,"//*[@id='fsearch']").send_keys(query)
 
 @then(u'Select form search button')
 def clickSearch(context):
@@ -31,7 +31,7 @@ def clickSearch(context):
     sleep(2)
     context.driver.switch_to.window(context.driver.window_handles[1])
 
-@then(u'Select fees search result')
+@then(u'Select query search result')
 def clickCourseFees(context):
     context.driver.find_element(By.XPATH,"//*[@id='sitesearch-result']/div[2]/a[1]/p[2]").click()
     sleep(5)
@@ -40,9 +40,9 @@ def clickCourseFees(context):
 def sortByRecent(context):
     context.driver.find_element(By.XPATH,"//*[@id='filterRadioDefault2']").click()
 
-@then(u'Filter courses')
-def sortByRecent(context):
-    context.driver.find_element(By.XPATH,"//*[@id='chkCourses']").click()
+@then(u'Filter "{filterSelection}"')
+def sortByRecent(context,filterSelection):
+    context.driver.find_element(By.XPATH,filterSelection).click()
 
 @then(u'Close browser')
 def closeBrowser(context):
