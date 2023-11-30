@@ -3,22 +3,20 @@ Feature: Search for Full Time Course
         Given Chrome browser is Launched
         When Open NP Website
         Then Navigate to Full-Time Courses
+        Then Verify correct location and title
 
-    Scenario: Search for IT 
-        Then Input "Info"
+    Scenario Outline: Search for IT and IM
+        Then Input "<course>"
         Then Select Search button
-        Then Verify if able to Search
+        Then Verify if able to Search parameter: "<courseName>","<nameElement>"
         And Close browser
-
-    Scenario Outline: Filter by School
-        Then Select School dropdown
-        Then Select "<School>"
-        Then Select Search button
-        Then Verify Filter "<schoolName>" same as "<schoolNamePath>"
-        And Close browser
-
+    
     Examples:
-    |School|schoolNamePath|schoolName|
-    |/html/body/main/section/div/div[2]/div[1]/div/div[2]/select/option[3]|/html/body/main/section/div/div[3]/div/div/div[1]/div/a/p|School of Design & Environment (DE)|
-    |/html/body/main/section/div/div[2]/div[1]/div/div[2]/select/option[4]|/html/body/main/section/div/div[3]/div/div/div[1]/div/a/p|School of Engineering (SoE)|
+        |course|courseName|nameElement|
+        |Info|Information Technology (IT)|/html/body/main/section/div/div[3]/div/div/div/div/a/h3|
+        |Immersive|Immersive Media (IM)|/html/body/main/section/div/div[3]/div/div/div/div/a/h3|
 
+    Scenario: Filter by School
+        Then Select School dropdown
+        Then Click Dropdown List
+        And Close browser
