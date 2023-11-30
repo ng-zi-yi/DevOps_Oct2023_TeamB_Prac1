@@ -3,7 +3,7 @@ Feature: Search for Full Time Course
         Given Chrome browser is Launched
         When Open NP Website
         Then Navigate to Full-Time Courses
-        Then Verify correct location and title
+        Then FTCourse: Verify correct location and title
 
     Scenario Outline: Search for IT and IM
         Then Input "<course>"

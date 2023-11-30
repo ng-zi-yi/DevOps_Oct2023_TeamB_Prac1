@@ -7,16 +7,6 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.action_chains import ActionChains
 
-@given(u'Chrome browser is Launched')
-def laucnhChromeBrowser(context):
-    context.driver = webdriver.Chrome()
-    context.driver.maximize_window()
-    context.driver.implicitly_wait(20)
-
-@when(u'Open NP Website')
-def openNPPage(context):
-    context.driver.get('https://www.np.edu.sg/home')
-
 @then(u'Select navigation bar search button')
 def navSearch(context):
     context.driver.find_element(By.XPATH,"//*[@id='navbarNavDropdown']/ul/li[8]/button/em").click()
@@ -44,6 +34,3 @@ def sortByRecent(context):
 def sortByRecent(context,filterSelection):
     context.driver.find_element(By.XPATH,filterSelection).click()
 
-@then(u'Close browser')
-def closeBrowser(context):
-    context.driver.close()

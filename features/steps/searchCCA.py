@@ -5,14 +5,6 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-@given(u'Chrome browser is Launched')
-def laucnhChromeBrowser(context):
-    context.driver = webdriver.Chrome()
-
-@when(u'Open NP Website')
-def openNPPage(context):
-    context.driver.get('https://www.np.edu.sg/home')
-
 # Test Case: Search for Badminton CCA Details 
 @then(u'Select Student Life Tab')
 def studentLife(context):
@@ -76,7 +68,3 @@ def verifySelection(context, ccaTitlePath, ccaName):
         EC.presence_of_element_located((By.XPATH, ccaTitlePath))
     )
     assert title.text == ccaName 
-
-@then(u'Close browser')
-def closeBrowser(context):
-    context.driver.close()

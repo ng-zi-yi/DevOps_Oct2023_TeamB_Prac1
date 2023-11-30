@@ -7,22 +7,11 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.select import Select
 
-logger = logging.getLogger()
-
-@given(u'Chrome browser is Launched')
-def laucnhChromeBrowser(context):
-    context.driver = webdriver.Chrome()
-    context.driver.maximize_window()
-
-@when(u'Open NP Website')
-def openNPPage(context):
-    context.driver.get('https://www.np.edu.sg/home')
-
 @then(u'Navigate to Full-Time Courses')
 def navToFTPage(context):
     context.driver.find_element(By.XPATH,"/html/body/header/nav/div[1]/div/div/div[1]/ul/li[2]/a").click()
     
-@then(u'Verify correct location and title')
+@then(u'FTCourse: Verify correct location and title')
 def verifyLocation(context):
     supposed_url = "https://www.np.edu.sg/schools-courses/full-time-courses"
     current_url = context.driver.current_url
@@ -71,7 +60,3 @@ def dropdownList(context):
 @then(u'Select School dropdown')
 def selectSchoolFilter(context):
     context.driver.find_element(By.XPATH,"/html/body/main/section/div/div[2]/div[1]/div/div[2]/select").click()
-
-@then(u'Close browser')
-def closeBrowser(context):
-    context.driver.close()
