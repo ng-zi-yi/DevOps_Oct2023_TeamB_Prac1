@@ -8,16 +8,6 @@ from selenium.webdriver.support import expected_conditions as EC
 
 
 #NP School Contact Details
-@given(u'Chrome Browser is launched')
-def launchChromeBrowser(context):
-    context.driver = webdriver.Chrome()
-
-    #Maximize Webpage to have follow standard screen size
-    context.driver.maximize_window()
-
-@when(u'Open NP page')
-def openNPpage(context):
-    context.driver.get("https://www.np.edu.sg/home")
 
 @then(u'Hover over Schools and Courses')
 def hoverSchoolsandCourses(context):
@@ -54,8 +44,4 @@ def toContactDetails(context):
     #Click Contact Button
     context.driver.execute_script("arguments[0].click();", contact_btn)
     sleep(2)
-
-@then(u'Close browser')
-def closeBrowser(context):
-    context.driver.close()
 

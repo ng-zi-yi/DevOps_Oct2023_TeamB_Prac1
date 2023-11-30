@@ -1,7 +1,7 @@
 Feature: NP Website Social Media
     Background: Common Steps
         Given   Chrome Browser is launched
-        When    Open NP page
+        When    Open NP Website
 
     Scenario Outline: Check Social Media Link
         Then    Click "<socialicon>" link

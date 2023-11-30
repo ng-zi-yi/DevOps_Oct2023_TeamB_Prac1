@@ -1,13 +1,13 @@
 Feature: NP Website School Contact Details
     Background: Common Steps
         Given   Chrome Browser is launched
-        When    Open NP page
+        When    Open NP Website
 
     Scenario Outline: Navigate to School Contact Details
         Then    Hover over Schools and Courses
         Then    Go to "<schoolPath>" page
         Then    Go to Contact Details
-        And     Close browser
+        And    Close browser
 
 
 Examples: School

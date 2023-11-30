@@ -8,17 +8,7 @@ from selenium.webdriver.support import expected_conditions as EC
 
 
 #NP Social Media Check
-@given(u'Chrome Browser is launched')
-def launchChromeBrowser(context):
-    context.driver = webdriver.Chrome()
-
-    #Maximize Webpage to have follow standard screen size
-    context.driver.maximize_window()
-
-@when(u'Open NP page')
-def openNPpage(context):
-    context.driver.get("https://www.np.edu.sg/home")
-    
+  
 
 ## Differrent Social Media Link 
 @then(u'Click "{socialicon}" link')
@@ -43,7 +33,3 @@ def correctSocialMediaPage(context,socialmediaPage):
 
     #Check if link is correct
     assert context.driver.current_url == socialmediaPage
-
-@then(u'Close browser')
-def closeBrowser(context):
-    context.driver.close()
