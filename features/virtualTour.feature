@@ -1,6 +1,3 @@
-#about np -->contact --> directions --> view virtual tour
-#explore --> start here --> school of ict
-
 Feature: Find School of ICT from Virtual Tour
     Scenario: Find ICT
         Given Chrome browser is Launched
