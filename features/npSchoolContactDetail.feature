@@ -3,12 +3,24 @@ Feature: NP Website School Contact Details
         Given   Chrome Browser is launched
         When    Open NP page
 
-    Scenario: Navigate to School Contact Details
+    Scenario Outline: Navigate to School Contact Details
         Then    Hover over Schools and Courses
-        Then    Go to "{schoolPath} page"
+        Then    Go to "<schoolPath>" page
         Then    Go to Contact Details
         And     Close browser
 
+
+Examples: School
+    |schoolPath|
+    |/html/body/header/nav/div[2]/div/div/ul/li[2]/div/div/div/div[2]/div/div[1]/ul/li[1]/a |
+    |/html/body/header/nav/div[2]/div/div/ul/li[2]/div/div/div/div[2]/div/div[1]/ul/li[2]/a |
+    |/html/body/header/nav/div[2]/div/div/ul/li[2]/div/div/div/div[2]/div/div[1]/ul/li[3]/a |
+    |/html/body/header/nav/div[2]/div/div/ul/li[2]/div/div/div/div[2]/div/div[1]/ul/li[4]/a |
+    |/html/body/header/nav/div[2]/div/div/ul/li[2]/div/div/div/div[2]/div/div[1]/ul/li[5]/a |
+    |/html/body/header/nav/div[2]/div/div/ul/li[2]/div/div/div/div[2]/div/div[1]/ul/li[6]/a |
+    |/html/body/header/nav/div[2]/div/div/ul/li[2]/div/div/div/div[2]/div/div[1]/ul/li[7]/a |
+    |/html/body/header/nav/div[2]/div/div/ul/li[2]/div/div/div/div[2]/div/div[1]/ul/li[8]/a |
+    |/html/body/header/nav/div[2]/div/div/ul/li[2]/div/div/div/div[2]/div/div[1]/ul/li[9]/a |
 
 # Examples: Schools
 #     |school                                         |schoolPath                                                                             |schoolLink                                                                                         |

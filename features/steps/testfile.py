@@ -61,16 +61,17 @@ def hoverSchoolsandCourses(context):
     nav_pane_options = context.driver.find_elements(By.XPATH, '//*[@id="navbarNavDropdown"]/ul/li[2]/div/div/div')
     assert len(nav_pane_options) > 0
 
-@then(u'Go to "{schoolPath} page"')
+@then(u'Go to "{schoolPath}" page')
 def clickSchoolPath(context,schoolPath):
     try:
         school_button = WebDriverWait(context.driver, 10).until(
             EC.element_to_be_clickable((By.XPATH, schoolPath))
         )
 
-        # Click on the club or society button (using JS)
+        # Click on the School button (using JS)
         context.driver.execute_script("arguments[0].click();", school_button)
         sleep(5)
+        
     except Exception as e:
         print(f"Exception: {e}")
         context.driver.save_screenshot("error_screenshot.png")
@@ -83,6 +84,7 @@ def toContactDetails(context):
     
     #Click Contact Button
     context.driver.execute_script("arguments[0].click();", contact_btn)
+    sleep(2)
 
 
 
